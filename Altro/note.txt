@@ -1,0 +1,5 @@
+Scegliere per i masterfile (i file di dati su cui agirà lo script genera-script), 
+un nome più corto, in modo che gli altri siano esprimibili in funzione di questo:
+esempio:
+d1.fdat è il masterfile, d1_1.fdat, d2_2.fdat sono i file che non verranno usati direttamente
+per fare script associati di gnuplot, ma finiranno in quello del masterfile

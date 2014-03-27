@@ -12,4 +12,3 @@ int main(int numparam, char* args[]) {
 	using namespace std;
 	cout << "Ciao";
 }
-
