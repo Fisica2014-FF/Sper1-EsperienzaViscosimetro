@@ -1,0 +1,39 @@
+# TEMPLATE! File da compilarecon uno script che sostituisca ai token le variabili effettive
+# Un nome tra doppi underscore, _NOME_, indica un token da sostituire con un dato
+# File per fare le immagini
+# set autoscale 
+
+# Ricordarsi che c'è solo
+
+set title "Distribuzione dei dati: __@NOME_DATI__"
+set xlabel "Spazio Percorso [s]"
+set ylabel "Tempo impiegato [m]"
+
+# This places the key in the bottom left corner, left-justifies the text, tolto->(gives it a title, and draws a box around it in linetype 3):
+set key right bottom Left
+
+#set grid on
+set fit errorvariables # creates a_err type variables for fitting errors
+
+f_1(x) = a_1 + v_1*x
+f_2(x) = a_2 + v_2*x
+f_3(x) = a_3 + v_3*x
+f_4(x) = a_4 + v_4*x
+f_5(x) = a_5 + v_5*x
+
+#update updata il file fornito a "via" con i nuovi valori
+fit f_1(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI__.fdat" using 1:2 via a_1, v_1
+fit f_2(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___2.fdat" using 1:2 via a_2, v_2
+fit f_3(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___3.fdat" using 1:2 via a_3, v_3
+fit f_4(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___4.fdat" using 1:2 via a_4, v_4
+fit f_5(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___5.fdat" using 1:2 via a_5, v_5
+
+set print "__@PATH_TEMPLATE____@NOME_DATI___param"
+print "v_1 = ", v_1, "\n"
+print "v_1_err = ", v_1_err, "\n"
+print "a_1 = ", a_1, "\n"
+print "a_1_err = ", a_1_err, "\n"
+
+plot "<paste __@PATHNOME_DATI___x.fdat __@FILE_DATI__" with yerrorbars using ($1):($2):(v1_err) title "Dati andata", \
+f_1(x) title "1a Pallina", \
+f_2(x) title "2a Pallina"
