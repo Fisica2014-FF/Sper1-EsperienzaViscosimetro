@@ -3,9 +3,9 @@
 # File per fare le immagini
 # set autoscale 
 
-# Ricordarsi che c'è solo
+# Questo template è pensato per agire su un masterfile, come d01.fdat,e includere i dati di d01_2.fdat, d01_3.fdat
 
-set title "Distribuzione dei dati: __@NOME_DATI__"
+set title "Diametro: __DIAMETRO__ ± __ERR_DIAMETRO__ [m]"
 set xlabel "Spazio Percorso [s]"
 set ylabel "Tempo impiegato [m]"
 
@@ -18,22 +18,25 @@ set fit errorvariables # creates a_err type variables for fitting errors
 f_1(x) = a_1 + v_1*x
 f_2(x) = a_2 + v_2*x
 f_3(x) = a_3 + v_3*x
-f_4(x) = a_4 + v_4*x
-f_5(x) = a_5 + v_5*x
+#f_4(x) = a_4 + v_4*x
+#f_5(x) = a_5 + v_5*x
 
 #update updata il file fornito a "via" con i nuovi valori
 fit f_1(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI__.fdat" using 1:2 via a_1, v_1
 fit f_2(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___2.fdat" using 1:2 via a_2, v_2
 fit f_3(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___3.fdat" using 1:2 via a_3, v_3
-fit f_4(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___4.fdat" using 1:2 via a_4, v_4
-fit f_5(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___5.fdat" using 1:2 via a_5, v_5
+#fit f_4(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___4.fdat" using 1:2 via a_4, v_4
+#fit f_5(x) "<paste __@PATHNOME_DATI___x.fdat __@PATHNOME_DATI___5.fdat" using 1:2 via a_5, v_5
 
-set print "__@PATH_TEMPLATE____@NOME_DATI___param"
-print "v_1 = ", v_1, "\n"
-print "v_1_err = ", v_1_err, "\n"
-print "a_1 = ", a_1, "\n"
-print "a_1_err = ", a_1_err, "\n"
+# set print "__@PATH_TEMPLATE____@NOME_DATI___param"
+# print "v_1 = ", v_1, "\n"
+# print "v_1_err = ", v_1_err, "\n"
+# print "a_1 = ", a_1, "\n"
+# print "a_1_err = ", a_1_err, "\n"
 
-plot "<paste __@PATHNOME_DATI___x.fdat __@FILE_DATI__" with yerrorbars using ($1):($2):(v1_err) title "Dati andata", \
+plot "<paste __@PATHNOME_DATI___x.fdat __@FILE_DATI__" with yerrorbars title "Dati andata", \
 f_1(x) title "1a Pallina", \
-f_2(x) title "2a Pallina"
+f_2(x) title "2a Pallina", \
+f_3(x) title "3a Pallina"
+#f_4(x) title "4a Pallina", \
+#f_5(x) title "5a Pallina"

@@ -3,3 +3,6 @@ un nome più corto, in modo che gli altri siano esprimibili in funzione di quest
 esempio:
 d1.fdat è il masterfile, d1_1.fdat, d2_2.fdat sono i file che non verranno usati direttamente
 per fare script associati di gnuplot, ma finiranno in quello del masterfile
+
+I file generati e che quindi possono essere cancellati, iniziano con _
+esempio _param.fdat sarebbe un file generato
