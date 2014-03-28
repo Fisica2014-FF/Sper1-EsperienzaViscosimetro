@@ -15,6 +15,13 @@ namespace mions {
 namespace latexlib{
 
 //Classe base
+/* I dati sono dei file divisi in colonne, suddivisi per gruppi.
+ * Esempio:
+ * _________Acciaio__________ | _______Ottone________ |
+ * __File1___  ____File2_____ | __File3___ ___File4__ |
+ *   12+-34	     34+-5.678        9+-1.1    12.13+-14
+ *   etc...
+ */
 class TabellaLatex {
 	using std::string;
 
@@ -23,17 +30,6 @@ class TabellaLatex {
 	string caption; //Casomai dovessimo differenziare
 
 	virtual ~TabellaLatex();
-};
-
-class TabRighellataCentrata : TabellaLatex {
-
-};
-
-
-// Classe che mette insieme nella stessa tabella più colonne di dati, perchè appartengono allo stesso
-// gruppo di misure, es guidovia erano i dati per una stessa inclinazione, l'estensimetro uno stesso estensimetro, etc
-class TabGruppoDati : TabRighellataCentrata {
-
 };
 
 }

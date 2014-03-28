@@ -5,7 +5,7 @@
 
 # Questo template è pensato per agire su un masterfile, come d01.fdat,e includere i dati di d01_2.fdat, d01_3.fdat
 
-set title "Diametro: __DIAMETRO__ \pm __ERR_DIAMETRO__ [m]"
+set title "Diametro: \$__DIAMETRO__ \\pm __ERR_DIAMETRO__\$ [m]"
 set xlabel "Spazio Percorso [s]"
 set ylabel "Tempo impiegato [m]"
 set terminal tikz
