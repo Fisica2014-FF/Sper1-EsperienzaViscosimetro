@@ -22,14 +22,14 @@ namespace latexlib{
  *   12+-34	     34+-5.678        9+-1.1    12.13+-14
  *   etc...
  */
-class TabellaLatex {
+class TabularLatex {
 	using std::string;
-
-	string formatoVerticale; // Esempio: |l|r|r|r|r|r|r|r|
-	string titolo; //Titolo della tabella, idealmente dovrebbe decidere lei dove e come metterlo
-	string caption; //Casomai dovessimo differenziare
-
+public:
+	//string titolo; //Titolo della tabella, idealmente dovrebbe decidere lei dove e come metterlo
+	//string caption; //Casomai dovessimo differenziare
+	TabularLatex
 	virtual ~TabellaLatex();
+private:
 };
 
 }
